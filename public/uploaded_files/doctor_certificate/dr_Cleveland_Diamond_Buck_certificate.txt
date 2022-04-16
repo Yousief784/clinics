@@ -1,0 +1,1 @@
+https://raw.githubusercontent.com/Tech-Labs/egypt-governorates-and-cities-db/master/SQL-File.sql

@@ -1,0 +1,5 @@
+playfair
+https://www.geeksforgeeks.org/playfair-cipher-with-examples/?ref=lbp
+
+caesar
+https://www.geeksforgeeks.org/caesar-cipher-in-cryptography/?ref=lbp
