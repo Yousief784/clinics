@@ -492,8 +492,8 @@ class CitiesSeeder extends Seeder
         foreach ($cities as $city){
             DB::table('cities')->insert([
                 'governorate_id' => $city[0],
-                'governorate_name_ar' => $city[1],
-                'governorate_name_en' => $city[2]
+                'city_name_ar' => $city[1],
+                'city_name_en' => $city[2]
             ]);
         }
     }

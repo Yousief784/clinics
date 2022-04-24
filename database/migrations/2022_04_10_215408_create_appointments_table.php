@@ -17,7 +17,14 @@ return new class extends Migration
             $table->id();
             $table->foreignId('doctor_id')->constrained('doctors')->cascadeOnDelete();
             $table->foreignId('patient_id')->constrained('users')->cascadeOnDelete();
-            $table->dateTime('appointment');
+            $table->string('rosheta')->nullable();
+            $table->string('first_name')->nullable();
+            $table->string('middle_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('age')->nullable();
+            $table->string('gender')->nullable();
+            $table->date('day');
+            $table->time('time');
             $table->timestamps();
         });
     }

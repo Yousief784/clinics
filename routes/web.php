@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ApplyAsDoctorController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\AppointmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +49,7 @@ Route::prefix('doctor')
     ->as('doctor.')
     ->middleware(['auth', 'doctor'])
     ->group(function (){
-        Route::get('/', [DoctorController::class, 'index'])->name('index');
+        Route::get('/{doctor_id}', [DoctorController::class, 'index'])->name('index');
     });
 
 Route::prefix('apply_as_doctor')
@@ -60,8 +61,11 @@ Route::prefix('apply_as_doctor')
     });
 
 Route::prefix('/')
-    ->as('main.')
-    ->middleware([])
+    ->as('appointment.')
+    ->middleware(['auth'])
     ->group(function(){
-        Route::get('/', [FrontController::class, 'index'])->name('index');
+        Route::post('/make_appointment/{doctor_id}/my_self', [AppointmentController::class, 'make_appointment_to_my_slef'])->name('make_appointment_to_my_self');
+        Route::post('/make_appointment_for_other_person/{doctor_id}', [AppointmentController::class, 'make_appointment_to_another_person'])->name('make_appointment_to_another_person');
     });
+Route::get('/', [FrontController::class, 'index'])->name('user.index');
+Route::get('/show/{doctor_id}', [FrontController::class, 'show'])->name('show_doctor_page');

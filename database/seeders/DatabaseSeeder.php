@@ -19,13 +19,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         User::factory(100)->create();
-         Admin::factory(5)->create();
-         Major::factory(10)->create();
         $this->call([
             GovernoratesSeeder::class,
             CitiesSeeder::class,
             DayOfWeekSeeder::class,
         ]);
+         User::factory(100)->create();
+         Admin::factory(5)->create();
+         Major::factory(10)->create();
+         PendingDoctor::factory(10)->create();
     }
 }

@@ -50,8 +50,8 @@ class GovernoratesSeeder extends Seeder
         foreach ($governorates as $governorate){
             DB::table('governorates')->insert([
                 'governorate_id' => $governorate[0],
-                'city_name_ar' => $governorate[1],
-                'city_name_en' => $governorate[2],
+                'governorate_name_ar' => $governorate[1],
+                'governorate_name_en' => $governorate[2],
             ]);
         }
     }

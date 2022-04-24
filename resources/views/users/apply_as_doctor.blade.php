@@ -16,7 +16,7 @@
             <label class="mt-3"><h4>Governorates</h4></label>
             <select id="governorate" name="governorate_id" class="form-select"  onchange="show_select_cities()" required>
                 @foreach($governorates as $governorate)
-                    <option value="{{ $governorate->governorate_id }}">{{ $governorate->city_name_en }}</option>
+                    <option value="{{ $governorate->governorate_id }}">{{ $governorate->governorate_name_en }}</option>
                 @endforeach
             </select>
             @error('governorate')
@@ -71,7 +71,7 @@
                 @error('start_at')
                 <div class="text-danger">*{{ $message }}</div>
                 @enderror
-            </div>
+            </div><!-- start_at -->
             <div class="col">
                 <label class="mt-3 d-block"><h4>End AT</h4></label>
                 <input type="text"  class="form-control start_end_time @error('end_at') is-invalid @enderror" name="end_at" required>
@@ -124,25 +124,16 @@
             cities.forEach(function (city) {
                 let option = document.createElement("option");
                 option.value = city.id;
-                option.text = city.governorate_name_en;
+                option.text = city.city_name_en;
                 element.appendChild(option);
                 console.log(option)
             })
         }
 
-        $(document).ready(function(){
             $('.start_end_time').timepicker({
-                timeFormat: 'H:mm',
-                interval: 60,
-                minTime: '0',
-                maxTime: '23:00pm',
-                defaultTime: '0',
-                startTime: '0:00',
-                dynamic: true,
-                dropdown: true,
-                scrollbar: true
-            });
-        });
+                step: 60
+            })
+
 
     </script>
 @endsection

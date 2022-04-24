@@ -9,7 +9,14 @@ class Doctor extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['all_pay_to_doctor'];
+    protected $guarded = [];
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'start_at',
+        'end_at',
+    ];
 
     public function setHolidaysAttribute($value)
     {
@@ -42,10 +49,10 @@ class Doctor extends Model
     }
 
     public function governorate(){
-        return $this->belongsTo(Governorates::class);
+        return $this->belongsTo(Governorates::class, 'governorate_id', 'governorate_id');
     }
 
     public function city(){
-        return $this->belongsTo(Cities::class);
+        return $this->belongsTo(Cities::class, 'city_id', 'id');
     }
 }

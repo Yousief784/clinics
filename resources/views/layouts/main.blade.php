@@ -21,9 +21,12 @@
     <!-- Custom CSS -->
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
+    <script src="{{ asset('js/jquery-3.6.0.min.js') }}" ></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.timepicker.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.timepicker.min.css') }}" />
+
 </head>
 
 <body class="" style="background-color: #eee" >
@@ -64,9 +67,6 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     </ul>
-                    @auth
-                        <a href="#" class="btn btn-outline-dark me-3">Create New Group</a>
-                    @endauth
                     @guest
                         <a href="{{ route('register') }}" class="btn btn-outline-dark me-3">Register</a>
                         <a href="{{ route('login') }}" class="btn btn-outline-dark me-3">Login</a>
@@ -149,8 +149,8 @@
 <!-- ============================================================== -->
 <!-- ============================================================== -->
 <!-- All Jquery -->
-<script src=" {{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
+<script src=" {{ asset('js/bootstrap.bundle.min.js') }}"></script>
 </body>
 
 </html>

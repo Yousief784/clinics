@@ -11,6 +11,8 @@ class Admin extends Model
 
     public $incrementing = false;
 
+    protected $primaryKey = 'user_id';
+
     protected $guarded = [];
 
     public function user(){
